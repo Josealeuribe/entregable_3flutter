@@ -22,42 +22,22 @@ class DashboardScreen extends StatelessWidget {
               const SizedBox(height: 18),
               const BudgetCard(),
               const SizedBox(height: 18),
-              // Tab mock (Categories / Recent transaction)
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(14),
-                ),
-                child: Row(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                      decoration: BoxDecoration(
-                        color: AppColors.lightBlue,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: const Text('Categories', style: TextStyle(fontWeight: FontWeight.w600)),
-                    ),
-                    const SizedBox(width: 8),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 8),
-                      child: Text('Recent transaction', style: TextStyle(color: Color(0xFF9CA3AF))),
-                    )
-                  ],
+
+              // 🔹 "View All" alineado a la derecha
+              Align(
+                alignment: Alignment.centerRight,
+                child: const Text(
+                  "View All",
+                  style: TextStyle(
+                    color: Color(0xFF2854FF),
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
-              const SizedBox(height: 14),
-              // Header row
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text("Categories", style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16)),
-                  Text("View All", style: TextStyle(color: Color(0xFF2854FF))),
-                ],
-              ),
+
               const SizedBox(height: 12),
-              // Categories list
+
+              // 🔹 Lista de categorías
               Column(
                 children: categories.map((c) => CategoryItem(category: c)).toList(),
               ),

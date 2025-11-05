@@ -25,7 +25,7 @@ class BudgetCard extends StatelessWidget {
               Text("\$ 2.868.000,00", style: AppTextStyles.budgetAmount),
               SizedBox(height: 16),
 
-              // 🔹 Los dos widgets internos con color más claro
+              // 🔹 Widgets internos (sin borde en iconos)
               IncomeSpendingCard(
                 icon: Icons.arrow_upward,
                 label: "Incomes",
@@ -49,7 +49,7 @@ class BudgetCard extends StatelessWidget {
         Container(
           width: double.infinity,
           margin: const EdgeInsets.only(top: 0),
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
           decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
@@ -61,17 +61,18 @@ class BudgetCard extends StatelessWidget {
             children: [
               Expanded(
                 child: Container(
-                  height: 36,
+                  height: 40,
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6), // 🔹 padding interno agregado
                   decoration: BoxDecoration(
-                    color: AppColors.primaryBlue,
+                    color: Color(0xFFE5E7EB), // 🔹 Gris claro
                     borderRadius: BorderRadius.circular(10),
                   ),
                   alignment: Alignment.center,
                   child: const Text(
                     "Categories",
                     style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
@@ -79,17 +80,19 @@ class BudgetCard extends StatelessWidget {
               const SizedBox(width: 8),
               Expanded(
                 child: Container(
-                  height: 36,
+                  height: 40,
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6), // 🔹 padding interno agregado
                   decoration: BoxDecoration(
-                    color: Color(0xFFF3F5FF),
+                    color: Colors.white, // 🔹 Fondo blanco
                     borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Color(0xFFE5E7EB), width: 1),
                   ),
                   alignment: Alignment.center,
                   child: const Text(
                     "Recent transaction",
                     style: TextStyle(
-                      color: Colors.grey,
-                      fontWeight: FontWeight.w500,
+                      color: AppColors.primaryBlue, // 🔹 Texto azul
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),

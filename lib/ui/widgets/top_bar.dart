@@ -37,7 +37,7 @@ class TopBar extends StatelessWidget {
           child: IconButton(
             onPressed: () {},
             icon: const Icon(Icons.notifications_none),
-            color: Colors.black54,
+            color: const Color.fromARGB(255, 12, 66, 226),
           ),
         ),
         Container(
@@ -48,7 +48,7 @@ class TopBar extends StatelessWidget {
           child: IconButton(
             onPressed: () {},
             icon: const Icon(Icons.more_vert),
-            color: Colors.black54,
+            color: const Color.fromARGB(255, 12, 66, 226),
           ),
         ),
       ],
