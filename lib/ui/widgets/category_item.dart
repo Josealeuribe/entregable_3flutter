@@ -38,22 +38,25 @@ class CategoryItem extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 🔹 Icono de categoría
+          // 🔹 Ícono de categoría con fondo gris (solo el área del ícono)
           Container(
-            width: 42,
-            height: 42,
+            width: 48,
+            height: 48,
             decoration: BoxDecoration(
-              color: AppColors.lightBlue.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(10),
+              color: Colors.grey[200], // 🔸 Fondo gris claro solo aquí
+              borderRadius: BorderRadius.circular(12),
             ),
-            child: Image.asset(
-              category.iconPath,
-              fit: BoxFit.contain,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset(
+                category.iconPath,
+                fit: BoxFit.contain,
+              ),
             ),
           ),
           const SizedBox(width: 12),
 
-          // 🔹 Textos: nombre, subtítulo y precio (uno debajo del otro)
+          // 🔹 Textos a la izquierda
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,7 +78,6 @@ class CategoryItem extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 4),
-                // 🔹 Precio con formato y texto más grande
                 Text(
                   "\$ ${formatWithDots(category.amount)}",
                   style: AppTextStyles.body.copyWith(
@@ -88,14 +90,14 @@ class CategoryItem extends StatelessWidget {
             ),
           ),
 
-          // 🔹 Porcentaje dentro de óvalo + flecha
+          // 🔹 Porcentaje dentro de un óvalo con flecha
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
               color: category.isPositive
                   ? Colors.green.withOpacity(0.1)
                   : Colors.red.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(20), // 🔸 Ovalado
+              borderRadius: BorderRadius.circular(22),
               border: Border.all(
                 color: category.isPositive ? Colors.green : Colors.red,
                 width: 1.3,
@@ -105,13 +107,11 @@ class CategoryItem extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(
-                  category.isPositive
-                      ? Icons.arrow_upward
-                      : Icons.arrow_downward,
+                  category.isPositive ? Icons.arrow_upward : Icons.arrow_downward,
                   size: 14,
                   color: category.isPositive ? Colors.green : Colors.red,
                 ),
-                const SizedBox(width: 4),
+                const SizedBox(width: 3),
                 Text(
                   "${category.percentageChange.toStringAsFixed(1)}%",
                   style: TextStyle(
